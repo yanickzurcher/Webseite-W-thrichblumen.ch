@@ -1,0 +1,45 @@
+{
+  "einleitung": "Wüthrich Blumen ist ein Familienbetrieb in zweiter Generation. Hier stellen wir uns bald genauer vor.",
+  "personen": [
+    {
+      "name": "Hans-Peter Wüthrich",
+      "rolle": "",
+      "text": "Text folgt.",
+      "bild": "",
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Saskia Wüthrich",
+      "rolle": "Gelernte Floristin",
+      "text": "Text folgt.",
+      "bild": "/img/personen/saskia.jpg",
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Ruth und Walter Wüthrich",
+      "rolle": "",
+      "text": "Text folgt.",
+      "bild": "",
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Yanick Zürcher mit Miro",
+      "rolle": "",
+      "text": "Text folgt.",
+      "bild": "/img/personen/yanick-miro.jpg",
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Baddy",
+      "rolle": "",
+      "text": "Text folgt.",
+      "bild": "/img/personen/baddy.jpg",
+      "x": "50",
+      "y": "50"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+# Decap CMS – Einstellungen für wüthrichblumen.ch
+# Bearbeiten unter: https://wüthrichblumen.ch/admin
+
+backend:
+  name: github
+  repo: yanickzurcher/Webseite-W-thrichblumen.ch
+  branch: main
+  base_url: https://xn--wthrichblumen-wob.ch   # = wüthrichblumen.ch (Umlaut-Domain in Punycode)
+  auth_endpoint: api/auth
+  commit_messages:
+    update: "Inhalt geändert: {{slug}}"
+    uploadMedia: "Bild hochgeladen: {{path}}"
+    deleteMedia: "Bild gelöscht: {{path}}"
+
+locale: de
+site_url: https://xn--wthrichblumen-wob.ch
+display_url: https://wüthrichblumen.ch
+logo_url: /img/logo.png
+
+media_folder: img/uploads
+public_folder: /img/uploads
+
+collections:
+  - name: seite
+    label: Webseite
+    editor:
+      preview: true
+    files:
+      - name: hinweis
+        label: Saison-Hinweis (Streifen oben)
+        file: content/hinweis.json
+        format: json
+        fields:
+          - { label: "Hinweis anzeigen", name: aktiv, widget: boolean, default: false, hint: "Ein = der Streifen erscheint oben auf der Webseite. Aus = er ist weg." }
+          - { label: "Text", name: text, widget: string, default: "Saison beendet, ab März sind wir wieder da.", hint: "Kurz halten." }
+
+      - name: aktuell
+        label: Was blüht gerade
+        file: content/aktuell.json
+        format: json
+        fields:
+          - { label: "Stand", name: stand, widget: string, required: false, hint: "Zum Beispiel «Mitte Juli». Wird klein unter dem Titel angezeigt. Leer lassen, wenn nicht gewünscht." }
+          - { label: "Kurzer Text oben", name: hinweis, widget: text, required: false }
+          - { label: "Text, wenn nichts sichtbar ist", name: leer, widget: string, required: false, default: "Im Moment blüht nichts, bald geht es wieder los.", hint: "Erscheint anstelle der Etiketten, wenn alle ausgeblendet sind." }
+          - label: Etiketten
+            name: blumen
+            widget: list
+            summary: "{{fields.name}}"
+            label_singular: Etikett
+            hint: "So viele Blumen wie du möchtest. Mit dem Schalter «Sichtbar» blendest du eine Blume ein oder aus, ohne sie zu löschen. Reihenfolge mit den Punkten links verschieben."
+            fields:
+              - { label: "Name der Blume", name: name, widget: string }
+              - { label: "Sichtbar auf der Webseite", name: sichtbar, widget: boolean, default: true, hint: "Ein = erscheint auf der Webseite. Aus = bleibt gespeichert, ist aber versteckt." }
+              - { label: "Bild", name: bild, widget: image, required: false, media_folder: /img/aktuell, public_folder: /img/aktuell, hint: "Am besten ein quadratisches Foto. Große Handyfotos sind kein Problem, sie werden automatisch verkleinert." }
+              - label: "Ausschnitt waagrecht"
+                name: x
+                widget: select
+                options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+                default: "50"
+                required: false
+                hint: "Welcher Teil des Bildes bleibt sichtbar? Die Vorschau rechts zeigt das Ergebnis sofort."
+              - label: "Ausschnitt senkrecht"
+                name: y
+                widget: select
+                options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+                default: "50"
+                required: false
+
+      - name: startbild
+        label: Startbild (großes Bild ganz oben)
+        file: content/startbild.json
+        format: json
+        fields:
+          - { label: "Bild für Computer (Querformat)", name: bild, widget: image, media_folder: /img/start, public_folder: /img/start, hint: "Querformat, möglichst scharf. Oben links steht die Schrift, dort sollte das Bild ruhig sein." }
+          - { label: "Bild für Handy (Hochformat, kann leer bleiben)", name: bild_handy, widget: image, required: false, media_folder: /img/start, public_folder: /img/start, hint: "Wenn leer, wird das Computer-Bild auch auf dem Handy gezeigt." }
+          - { label: "Bildbeschreibung", name: alt, widget: string, required: false, hint: "Kurz beschreiben, was zu sehen ist (wichtig für Sehbehinderte und Google)." }
+          - label: "Computer: Ausschnitt waagrecht"
+            name: x
+            widget: select
+            options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+            default: "50"
+            required: false
+            hint: "Welcher Teil des Bildes bleibt sichtbar? Die Vorschau rechts zeigt das Ergebnis sofort."
+          - label: "Computer: Ausschnitt senkrecht"
+            name: y
+            widget: select
+            options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+            default: "0"
+            required: false
+          - label: "Handy: Ausschnitt waagrecht"
+            name: x_handy
+            widget: select
+            options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+            default: "50"
+            required: false
+          - label: "Handy: Ausschnitt senkrecht"
+            name: y_handy
+            widget: select
+            options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+            default: "0"
+            required: false
+
+      - name: sogehts
+        label: So geht's (3 Schritte)
+        file: content/sogehts.json
+        format: json
+        fields:
+          - label: Schritte
+            name: schritte
+            widget: list
+            min: 3
+            max: 3
+            allow_add: false
+            summary: "{{fields.titel}}"
+            fields:
+              - { label: "Titel", name: titel, widget: string }
+              - { label: "Text", name: text, widget: text }
+              - { label: "Foto", name: bild, widget: image, media_folder: /img/sogehts, public_folder: /img/sogehts, hint: "Hochformat (3:4) passt am besten." }
+              - { label: "Bildbeschreibung", name: alt, widget: string, required: false }
+              - label: "Ausschnitt waagrecht"
+                name: x
+                widget: select
+                options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+                default: "50"
+                required: false
+                hint: "Welcher Teil des Bildes bleibt sichtbar? Die Vorschau rechts zeigt das Ergebnis sofort."
+              - label: "Ausschnitt senkrecht"
+                name: y
+                widget: select
+                options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+                default: "50"
+                required: false
+
+      - name: ueber-uns
+        label: Über uns
+        file: content/ueber-uns.json
+        format: json
+        fields:
+          - { label: "Einleitung", name: einleitung, widget: text, required: false }
+          - label: Personen
+            name: personen
+            widget: list
+            summary: "{{fields.name}}"
+            label_singular: Person
+            fields:
+              - { label: "Name", name: name, widget: string }
+              - { label: "Aufgabe / Rolle", name: rolle, widget: string, required: false, hint: "Zum Beispiel «Gelernte Floristin». Kann leer bleiben." }
+              - { label: "Text", name: text, widget: text, required: false, hint: "Leerzeile = neuer Absatz." }
+              - { label: "Foto", name: bild, widget: image, required: false, media_folder: /img/personen, public_folder: /img/personen, hint: "Quadratisch oder Hochformat. Wird automatisch verkleinert. Ohne Foto erscheint «Foto folgt»." }
+              - label: "Ausschnitt waagrecht"
+                name: x
+                widget: select
+                options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+                default: "50"
+                required: false
+                hint: "Welcher Teil des Bildes bleibt sichtbar? Die Vorschau rechts zeigt das Ergebnis sofort."
+              - label: "Ausschnitt senkrecht"
+                name: y
+                widget: select
+                options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+                default: "50"
+                required: false
+
+      - name: betrieb
+        label: Betrieb
+        file: content/betrieb.json
+        format: json
+        fields:
+          - { label: "Text", name: text, widget: text, hint: "Leerzeile = neuer Absatz." }
+          - { label: "Bild 1", name: bild1, widget: image, required: false, media_folder: /img/hof, public_folder: /img/hof }
+          - { label: "Bildbeschreibung 1", name: bild1text, widget: string, required: false }
+          - label: "Bild 1: Ausschnitt waagrecht"
+            name: bild1_x
+            widget: select
+            options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+            default: "50"
+            required: false
+            hint: "Welcher Teil des Bildes bleibt sichtbar? Die Vorschau rechts zeigt das Ergebnis sofort."
+          - label: "Bild 1: Ausschnitt senkrecht"
+            name: bild1_y
+            widget: select
+            options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+            default: "50"
+            required: false
+          - { label: "Bild 2", name: bild2, widget: image, required: false, media_folder: /img/hof, public_folder: /img/hof }
+          - { label: "Bildbeschreibung 2", name: bild2text, widget: string, required: false }
+          - label: "Bild 2: Ausschnitt waagrecht"
+            name: bild2_x
+            widget: select
+            options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+            default: "50"
+            required: false
+          - label: "Bild 2: Ausschnitt senkrecht"
+            name: bild2_y
+            widget: select
+            options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+            default: "50"
+            required: false
+
+      - name: galerie
+        label: Impressionen (Bildergalerie)
+        file: content/galerie.json
+        format: json
+        fields:
+          - label: Bilder
+            name: bilder
+            widget: list
+            summary: "{{fields.text}}"
+            label_singular: Bild
+            fields:
+              - { label: "Bild", name: bild, widget: image, media_folder: /img/galerie, public_folder: /img/galerie }
+              - { label: "Bildbeschreibung", name: text, widget: string, required: false, hint: "Kurz beschreiben, was zu sehen ist (wichtig für Sehbehinderte und Google)." }
+              - label: "Ausschnitt waagrecht"
+                name: x
+                widget: select
+                options: [{ label: "Links", value: "0" }, { label: "Etwas links", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas rechts", value: "75" }, { label: "Rechts", value: "100" }]
+                default: "50"
+                required: false
+                hint: "Welcher Teil des Bildes bleibt sichtbar? Die Vorschau rechts zeigt das Ergebnis sofort."
+              - label: "Ausschnitt senkrecht"
+                name: y
+                widget: select
+                options: [{ label: "Oben", value: "0" }, { label: "Etwas oben", value: "25" }, { label: "Mitte", value: "50" }, { label: "Etwas unten", value: "75" }, { label: "Unten", value: "100" }]
+                default: "50"
+                required: false
+
+      - name: einstellungen
+        label: Kontakt & soziale Medien
+        file: content/einstellungen.json
+        format: json
+        fields:
+          - { label: "E-Mail-Adresse", name: email, widget: string, required: false, hint: "Leer lassen, solange es noch keine gibt. Erscheint bei Kontakt, Impressum und Datenschutz." }
+          - { label: "Instagram-Link", name: instagram, widget: string, required: false }
+          - { label: "Facebook-Link", name: facebook, widget: string, required: false }

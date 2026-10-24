@@ -1,0 +1,91 @@
+{
+  "stand": "",
+  "hinweis": "Das Feld ändert sich von Woche zu Woche. Hier siehst du, was im Moment geschnitten werden kann.",
+  "blumen": [
+    {
+      "name": "Sonnenblumen",
+      "bild": "/img/aktuell/sonnenblumen.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Gladiolen",
+      "bild": "/img/aktuell/gladiolen.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Dahlien",
+      "bild": "/img/aktuell/dahlien.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Strohblumen",
+      "bild": "/img/aktuell/strohblumen.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Bartnelken",
+      "bild": "/img/aktuell/bartnelken.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Tulpen",
+      "bild": "/img/aktuell/tulpen.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Zinnien",
+      "bild": "/img/aktuell/zinnien.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Schmuckkörbchen",
+      "bild": "/img/aktuell/schmuckkoerbchen.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Zierkürbisse",
+      "bild": "/img/aktuell/zierkuerbisse.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Kornblumen",
+      "bild": "/img/aktuell/kornblumen.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Margeriten",
+      "bild": "/img/aktuell/margeriten.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "name": "Kugeldisteln",
+      "bild": "/img/aktuell/kugeldisteln.jpg",
+      "sichtbar": true,
+      "x": "50",
+      "y": "50"
+    }
+  ],
+  "leer": "Im Moment blüht nichts, bald geht es wieder los."
+}

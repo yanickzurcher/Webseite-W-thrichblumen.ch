@@ -1,0 +1,28 @@
+{
+  "schritte": [
+    {
+      "titel": "Schere nehmen und los",
+      "text": "Scheren und Bast liegen vor Ort bereit. Spazier durch die Reihen und schneide, was dir gefällt.",
+      "bild": "/img/schritt-1-schere.jpg",
+      "alt": "Frisch geschnittene Bartnelken über dem Blumenfeld",
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "titel": "Strauss zusammenstellen",
+      "text": "Binde deinen Strauss mit Bast zusammen. Blätter und Stiele, die du nicht brauchst, kommen in den Gitterkorb für Grünabfall.",
+      "bild": "/img/schritt-2-strauss.jpg",
+      "alt": "Selbst gepflückter Strauss mit Bartnelken und Frauenmantel vor dem Feld",
+      "x": "50",
+      "y": "50"
+    },
+    {
+      "titel": "Bezahlen und mitnehmen",
+      "text": "Bezahlt wird an der Kasse des Vertrauens, bar oder mit TWINT. Danke, dass du ehrlich bist, so bleibt das Feld für alle offen.",
+      "bild": "/img/schritt-3-kasse.jpg",
+      "alt": "Bunter Feldblumenstrauss vor blauem Himmel",
+      "x": "50",
+      "y": "50"
+    }
+  ]
+}
