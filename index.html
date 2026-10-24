@@ -4,10 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wüthrich Blumen – Blumen selber pflücken in Brittnau</title>
-<meta name="description" content="Blumenfeld zum Selberpflücken in Brittnau AG. Sonnenblumen, Gladiolen, Dahlien, Strohblumen, Bartnelken und Tulpen – rund um die Uhr offen, bezahlt wird bar oder mit TWINT.">
+<meta name="description" content="Blumen selber pflücken in Brittnau AG: Sonnenblumen, Gladiolen, Dahlien und mehr. Von März bis zum ersten Frost rund um die Uhr offen, bezahlt wird bar oder mit TWINT.">
 <meta property="og:title" content="Wüthrich Blumen – Blumen selber pflücken in Brittnau">
 <meta property="og:description" content="Ein Blumenfeld in zweiter Generation. Rund um die Uhr offen, Kasse des Vertrauens.">
-<meta property="og:image" content="/img/hero-sonnenblumen-klein.jpg">
+<meta property="og:image" content="https://xn--wthrichblumen-wob.ch/img/og-vorschau.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zwei Körbe mit Sonnenblumen und Gladiolen im Abendlicht auf dem Blumenfeld in Brittnau">
+<meta property="og:url" content="https://xn--wthrichblumen-wob.ch/">
+<meta property="og:site_name" content="Wüthrich Blumen">
+<meta property="og:locale" content="de_CH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://xn--wthrichblumen-wob.ch/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#2A4433">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -15,6 +23,37 @@
 <link rel="apple-touch-icon" href="/img/favicon-180.png">
 <link rel="preload" href="/fonts/lora.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Florist",
+  "name": "Wüthrich Blumen",
+  "description": "Blumenfeld zum Selberpflücken in Brittnau AG. Von März bis zum ersten Frost rund um die Uhr geöffnet, bezahlt wird bar oder mit TWINT.",
+  "url": "https://xn--wthrichblumen-wob.ch/",
+  "image": "https://xn--wthrichblumen-wob.ch/img/og-vorschau.jpg",
+  "logo": "https://xn--wthrichblumen-wob.ch/img/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Zofingerstrasse 43a",
+    "postalCode": "4805",
+    "addressLocality": "Brittnau",
+    "addressRegion": "AG",
+    "addressCountry": "CH"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.2732114,
+    "longitude": 7.9449196
+  },
+  "hasMap": "https://maps.app.goo.gl/EA5FFvUT3hSXM1ha8",
+  "paymentAccepted": "Bargeld, TWINT",
+  "currenciesAccepted": "CHF",
+  "sameAs": [
+    "https://www.instagram.com/wuethrichblumen/",
+    "https://www.facebook.com/people/W%C3%BCthrich-Blumen/61595349444311/"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -35,7 +74,7 @@
         <li><a href="#so-gehts">So geht's</a></li>
         <li><a href="#aktuell">Aktuell</a></li>
         <li><a href="#ueber-uns">Über uns</a></li>
-        <li><a href="#hofgeschichte">Hofgeschichte</a></li>
+        <li><a href="#betrieb">Betrieb</a></li>
         <li><a href="#impressionen">Impressionen</a></li>
         <li><a href="#anfahrt">Anfahrt</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
@@ -58,6 +97,7 @@
 
   <!-- START -->
   <section class="hero" id="top">
+    <p class="saison" id="saisonHinweis" role="status" hidden></p>
     <picture>
       <source media="(max-width: 700px)" srcset="/img/hero-sonnenblumen-handy.jpg" width="1291" height="2296">
       <img class="hero__img" src="/img/hero-sonnenblumen-1800.jpg" srcset="/img/hero-sonnenblumen-1800.jpg 1800w, /img/hero-sonnenblumen.jpg 3200w" sizes="100vw" width="1800" height="1013" fetchpriority="high" alt="Zwei Körbe mit Sonnenblumen und Gladiolen im Abendlicht vor dem Blumenfeld in Brittnau">
@@ -116,6 +156,7 @@
         <p class="aktuell__hinweis" id="aktuellHinweis">Das Feld ändert sich von Woche zu Woche. Hier siehst du, was im Moment geschnitten werden kann.</p>
         <p class="aktuell__stand" id="aktuellStand"></p>
       </div>
+      <p class="aktuell__leer" id="aktuellLeer" hidden>Im Moment blüht nichts, bald geht es wieder los.</p>
       <ul class="etiketten" id="aktuellListe">
         <!-- wird aus /content/aktuell.json gefüllt -->
       </ul>
@@ -136,17 +177,17 @@
     </div>
   </section>
 
-  <!-- HOFGESCHICHTE -->
-  <section class="abschnitt geschichte" id="hofgeschichte" aria-labelledby="geschichte-titel">
-    <div class="rahmen geschichte__raster" id="geschichteRaster">
-      <div class="geschichte__text">
-        <h2 id="geschichte-titel">Hofgeschichte</h2>
-        <div id="geschichteText"><p>Die Geschichte unseres Hofes folgt bald.</p></div>
+  <!-- BETRIEB -->
+  <section class="abschnitt betrieb" id="betrieb" aria-labelledby="betrieb-titel">
+    <div class="rahmen betrieb__raster">
+      <div class="betrieb__text">
+        <h2 id="betrieb-titel">Betrieb</h2>
+        <div id="betriebText"><p>Text folgt bald.</p></div>
       </div>
-      <figure class="geschichte__bild" id="geschichteBild" hidden>
-        <img src="" alt="" loading="lazy">
-        <figcaption></figcaption>
-      </figure>
+      <div class="betrieb__bilder" id="betriebBilder">
+        <figure class="betrieb__bild betrieb__bild--1"><img id="betriebBild1" src="/img/betrieb-1.jpg" alt="Kalb auf der Weide im Morgennebel" width="1000" height="1333" loading="lazy"></figure>
+        <figure class="betrieb__bild betrieb__bild--2"><img id="betriebBild2" src="/img/betrieb-2.jpg" alt="Braunes Kalb auf der Weide im Nebel" width="1400" height="1050" loading="lazy"></figure>
+      </div>
     </div>
   </section>
 
@@ -233,8 +274,6 @@
     <ul>
       <li><a href="/impressum.html">Impressum</a></li>
       <li><a href="/datenschutz.html">Datenschutz</a></li>
-      <li><a class="js-instagram" href="https://www.instagram.com/wuethrichblumen/" rel="noopener" target="_blank">Instagram</a></li>
-      <li><a class="js-facebook" href="https://www.facebook.com/people/W%C3%BCthrich-Blumen/61595349444311/" rel="noopener" target="_blank">Facebook</a></li>
     </ul>
   </div>
 </footer>

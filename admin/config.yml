@@ -40,15 +40,16 @@ collections:
             name: hinweis
             widget: text
             required: false
+          - { label: "Text, wenn nichts sichtbar ist", name: leer, widget: string, required: false, default: "Im Moment blüht nichts, bald geht es wieder los.", hint: "Erscheint anstelle der Etiketten, wenn alle ausgeblendet sind." }
           - label: Etiketten
             name: blumen
             widget: list
             summary: "{{fields.name}}"
             label_singular: Etikett
-            max: 8
-            hint: "Bis zu 8 Etiketten. Was gerade nicht blüht, einfach löschen (Papierkorb). Reihenfolge mit den Punkten links verschieben."
+            hint: "So viele Blumen wie du möchtest. Mit dem Schalter «Sichtbar» blendest du eine Blume ein oder aus, ohne sie zu löschen. Reihenfolge mit den Punkten links verschieben."
             fields:
               - { label: Name der Blume, name: name, widget: string }
+              - { label: "Sichtbar auf der Webseite", name: sichtbar, widget: boolean, default: true, hint: "Ein = erscheint auf der Webseite. Aus = bleibt gespeichert, ist aber versteckt." }
               - { label: Bild, name: bild, widget: image, required: false, media_folder: /img/aktuell, public_folder: /img/aktuell, hint: "Am besten ein quadratisches Foto." }
 
       - name: ueber-uns
@@ -68,14 +69,16 @@ collections:
               - { label: Text, name: text, widget: text, required: false, hint: "Leerzeile = neuer Absatz." }
               - { label: Foto, name: bild, widget: image, required: false, media_folder: /img/personen, public_folder: /img/personen, hint: "Hochformat. Ohne Foto erscheint «Foto folgt»." }
 
-      - name: hofgeschichte
-        label: Hofgeschichte
-        file: content/hofgeschichte.json
+      - name: betrieb
+        label: Betrieb
+        file: content/betrieb.json
         format: json
         fields:
           - { label: Text, name: text, widget: text, hint: "Leerzeile = neuer Absatz." }
-          - { label: Bild, name: bild, widget: image, required: false, media_folder: /img/hof, public_folder: /img/hof }
-          - { label: Bildunterschrift, name: bildtext, widget: string, required: false }
+          - { label: Bild 1, name: bild1, widget: image, required: false, media_folder: /img/hof, public_folder: /img/hof }
+          - { label: Bildbeschreibung 1, name: bild1text, widget: string, required: false, hint: "Kurz beschreiben, was zu sehen ist." }
+          - { label: Bild 2, name: bild2, widget: image, required: false, media_folder: /img/hof, public_folder: /img/hof }
+          - { label: Bildbeschreibung 2, name: bild2text, widget: string, required: false }
 
       - name: galerie
         label: Impressionen (Bildergalerie)
@@ -90,6 +93,14 @@ collections:
             fields:
               - { label: Bild, name: bild, widget: image, media_folder: /img/galerie, public_folder: /img/galerie }
               - { label: Bildbeschreibung, name: text, widget: string, required: false, hint: "Kurz beschreiben, was zu sehen ist (wichtig für Sehbehinderte und Google)." }
+
+      - name: hinweis
+        label: Saison-Hinweis (Streifen oben)
+        file: content/hinweis.json
+        format: json
+        fields:
+          - { label: "Hinweis anzeigen", name: aktiv, widget: boolean, default: false, hint: "Ein = der Streifen erscheint oben auf der Webseite. Aus = er ist weg." }
+          - { label: Text, name: text, widget: string, default: "Saison beendet, ab März sind wir wieder da.", hint: "Kurz halten, zum Beispiel «Saison beendet, ab März sind wir wieder da.»" }
 
       - name: einstellungen
         label: Kontakt & soziale Medien

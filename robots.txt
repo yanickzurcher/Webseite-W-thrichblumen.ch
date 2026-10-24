@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /admin/
+
+Sitemap: https://xn--wthrichblumen-wob.ch/sitemap.xml

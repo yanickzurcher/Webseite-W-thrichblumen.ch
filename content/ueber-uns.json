@@ -11,29 +11,23 @@
       "name": "Saskia Wüthrich",
       "rolle": "Gelernte Floristin",
       "text": "Text folgt.",
-      "bild": ""
+      "bild": "/img/personen/saskia.jpg"
     },
     {
-      "name": "Ruth Wüthrich",
+      "name": "Ruth und Walter Wüthrich",
       "rolle": "",
       "text": "Text folgt.",
       "bild": ""
     },
     {
-      "name": "Walter Wüthrich",
+      "name": "Yanick Zürcher mit Miro",
       "rolle": "",
       "text": "Text folgt.",
-      "bild": ""
-    },
-    {
-      "name": "Yanick Zürcher",
-      "rolle": "",
-      "text": "Text folgt.",
-      "bild": ""
+      "bild": "/img/personen/yanick-miro.jpg"
     },
     {
       "name": "Baddy",
-      "rolle": "Der Hund",
+      "rolle": "",
       "text": "Text folgt.",
       "bild": "/img/personen/baddy.jpg"
     }

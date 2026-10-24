@@ -53,13 +53,21 @@
     if (d.hinweis) document.getElementById("aktuellHinweis").textContent = d.hinweis;
     if (d.stand) document.getElementById("aktuellStand").textContent = "Stand: " + d.stand;
     var liste = document.getElementById("aktuellListe");
-    (d.blumen || []).forEach(function (b) {
-      if (!b.name) return;
+    var sichtbar = (d.blumen || []).filter(function (b) { return b.name && b.sichtbar !== false; });
+    var leer = document.getElementById("aktuellLeer");
+    if (!sichtbar.length) { if (d.leer) leer.textContent = d.leer; leer.hidden = false; }
+    sichtbar.forEach(function (b) {
       var li = el("li", { "class": "etikett" });
       if (b.bild) li.appendChild(el("img", { src: b.bild, alt: b.name, loading: "lazy", width: "900", height: "900" }));
       li.appendChild(el("h3", null, b.name));
       liste.appendChild(li);
     });
+  }).catch(function () {});
+
+  /* ---------- Saison-Hinweis ---------- */
+  laden("/content/hinweis.json").then(function (d) {
+    var box = document.getElementById("saisonHinweis");
+    if (d.aktiv && d.text) { box.textContent = d.text; box.hidden = false; }
   }).catch(function () {});
 
   /* ---------- Über uns ---------- */
@@ -85,21 +93,18 @@
     });
   }).catch(function () {});
 
-  /* ---------- Hofgeschichte ---------- */
-  laden("/content/hofgeschichte.json").then(function (d) {
-    var box = document.getElementById("geschichteText");
+  /* ---------- Betrieb ---------- */
+  laden("/content/betrieb.json").then(function (d) {
+    var box = document.getElementById("betriebText");
     if (d.text) {
       box.textContent = "";
       absaetze(d.text).forEach(function (t) { box.appendChild(el("p", null, t)); });
     }
-    if (d.bild) {
-      var fig = document.getElementById("geschichteBild");
-      var img = fig.querySelector("img");
-      img.src = d.bild; img.alt = d.bildtext || "Bild vom Hof";
-      fig.querySelector("figcaption").textContent = d.bildtext || "";
-      fig.hidden = false;
-      document.getElementById("geschichteRaster").classList.add("mit-bild");
-    }
+    [["betriebBild1", d.bild1, d.bild1text], ["betriebBild2", d.bild2, d.bild2text]].forEach(function (b) {
+      var img = document.getElementById(b[0]);
+      if (b[1]) { img.src = b[1]; img.alt = b[2] || "Bild vom Betrieb"; }
+      else { img.closest("figure").hidden = true; }
+    });
   }).catch(function () {});
 
   /* ---------- Kontakt und soziale Medien ---------- */
