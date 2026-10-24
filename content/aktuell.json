@@ -5,12 +5,12 @@
     {
       "name": "Sonnenblumen",
       "bild": "/img/aktuell/sonnenblumen.jpg",
-      "sichtbar": true
+      "sichtbar": false
     },
     {
       "name": "Gladiolen",
       "bild": "/img/aktuell/gladiolen.jpg",
-      "sichtbar": true
+      "sichtbar": false
     },
     {
       "name": "Dahlien",
@@ -25,22 +25,27 @@
     {
       "name": "Bartnelken",
       "bild": "/img/aktuell/bartnelken.jpg",
-      "sichtbar": true
+      "sichtbar": false
     },
     {
       "name": "Tulpen",
       "bild": "/img/aktuell/tulpen.jpg",
-      "sichtbar": true
+      "sichtbar": false
     },
     {
       "name": "Zinnien",
       "bild": "/img/aktuell/zinnien.jpg",
-      "sichtbar": true
+      "sichtbar": false
     },
     {
       "name": "Schmuckkörbchen",
       "bild": "/img/aktuell/schmuckkoerbchen.jpg",
-      "sichtbar": true
+      "sichtbar": false
+    },
+    {
+      "sichtbar": true,
+      "name": "Zierkürbis",
+      "bild": "/img/aktuell/zierkürbis.jpg"
     }
   ],
   "leer": "Im Moment blüht nichts, bald geht es wieder los."
