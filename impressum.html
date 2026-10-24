@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum – Wüthrich Blumen</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="bar ist-gescrollt">
+  <div class="bar__inner">
+    <a class="bar__logo" href="/" aria-label="Zur Startseite"><img src="/img/logo.png" width="640" height="327" alt="Blumen Wüthrich"></a>
+    <a class="zurueck" href="/">Zur Startseite</a>
+  </div>
+</header>
+
+<main class="text-seite">
+  <div class="rahmen">
+    <h1>Impressum</h1>
+
+    <h2>Verantwortlich für diese Website</h2>
+    <address>
+      Saskia Wüthrich<br>
+      Wüthrich Blumen<br>
+      Zofingerstrasse 43a<br>
+      4805 Brittnau<br>
+      Schweiz
+    </address>
+    <p>E-Mail: <span id="impEmail">folgt</span></p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>Wir pflegen die Inhalte dieser Website mit Sorgfalt. Was gerade blüht, ändert sich aber schnell, und wir können nicht garantieren, dass alle Angaben jederzeit aktuell und vollständig sind.</p>
+
+    <h2>Links auf andere Websites</h2>
+    <p>Für Inhalte von externen Websites, auf die wir verlinken (zum Beispiel Instagram, Facebook oder Google Maps), sind ausschliesslich deren Betreiber verantwortlich.</p>
+
+    <h2>Bilder und Texte</h2>
+    <p>Alle Fotos auf dieser Website stammen von Wüthrich Blumen. Die Verwendung ist nur mit unserer Erlaubnis gestattet.</p>
+  </div>
+</main>
+
+<footer class="fuss">
+  <div class="rahmen fuss__inner">
+    <img class="fuss__blume" src="/img/sonnenblume.png" width="256" height="256" alt="">
+    <p>Wüthrich Blumen, Brittnau</p>
+    <ul>
+      <li><a href="/impressum.html">Impressum</a></li>
+      <li><a href="/datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+<script>
+fetch("/content/einstellungen.json").then(function(r){return r.json();}).then(function(d){
+  if (d.email) { var s=document.getElementById("impEmail"); s.innerHTML=""; var a=document.createElement("a"); a.href="mailto:"+d.email; a.textContent=d.email; s.appendChild(a); }
+}).catch(function(){});
+</script>
+</body>
+</html>

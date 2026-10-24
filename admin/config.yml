@@ -1,0 +1,101 @@
+# Decap CMS – Einstellungen für wüthrichblumen.ch
+# Bearbeiten unter: https://wüthrichblumen.ch/admin
+
+backend:
+  name: github
+  repo: yanickzurcher/Webseite-W-thrichblumen.ch
+  branch: main
+  base_url: https://xn--wthrichblumen-wob.ch   # = wüthrichblumen.ch (Umlaut-Domain in Punycode)
+  auth_endpoint: api/auth
+  commit_messages:
+    update: "Inhalt geändert: {{slug}}"
+    uploadMedia: "Bild hochgeladen: {{path}}"
+    deleteMedia: "Bild gelöscht: {{path}}"
+
+locale: de
+site_url: https://xn--wthrichblumen-wob.ch
+display_url: https://wüthrichblumen.ch
+logo_url: /img/logo.png
+
+media_folder: img/uploads
+public_folder: /img/uploads
+
+collections:
+  - name: seite
+    label: Webseite
+    editor:
+      preview: false
+    files:
+      - name: aktuell
+        label: Was blüht gerade
+        file: content/aktuell.json
+        format: json
+        fields:
+          - label: Stand
+            name: stand
+            widget: string
+            required: false
+            hint: "Zum Beispiel «Mitte Juli». Wird klein unter dem Titel angezeigt. Leer lassen, wenn nicht gewünscht."
+          - label: Kurzer Text oben
+            name: hinweis
+            widget: text
+            required: false
+          - label: Etiketten
+            name: blumen
+            widget: list
+            summary: "{{fields.name}}"
+            label_singular: Etikett
+            max: 8
+            hint: "Bis zu 8 Etiketten. Was gerade nicht blüht, einfach löschen (Papierkorb). Reihenfolge mit den Punkten links verschieben."
+            fields:
+              - { label: Name der Blume, name: name, widget: string }
+              - { label: Bild, name: bild, widget: image, required: false, media_folder: /img/aktuell, public_folder: /img/aktuell, hint: "Am besten ein quadratisches Foto." }
+
+      - name: ueber-uns
+        label: Über uns
+        file: content/ueber-uns.json
+        format: json
+        fields:
+          - { label: Einleitung, name: einleitung, widget: text, required: false }
+          - label: Personen
+            name: personen
+            widget: list
+            summary: "{{fields.name}}"
+            label_singular: Person
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Aufgabe / Rolle, name: rolle, widget: string, required: false, hint: "Zum Beispiel «Gelernte Floristin». Kann leer bleiben." }
+              - { label: Text, name: text, widget: text, required: false, hint: "Leerzeile = neuer Absatz." }
+              - { label: Foto, name: bild, widget: image, required: false, media_folder: /img/personen, public_folder: /img/personen, hint: "Hochformat. Ohne Foto erscheint «Foto folgt»." }
+
+      - name: hofgeschichte
+        label: Hofgeschichte
+        file: content/hofgeschichte.json
+        format: json
+        fields:
+          - { label: Text, name: text, widget: text, hint: "Leerzeile = neuer Absatz." }
+          - { label: Bild, name: bild, widget: image, required: false, media_folder: /img/hof, public_folder: /img/hof }
+          - { label: Bildunterschrift, name: bildtext, widget: string, required: false }
+
+      - name: galerie
+        label: Impressionen (Bildergalerie)
+        file: content/galerie.json
+        format: json
+        fields:
+          - label: Bilder
+            name: bilder
+            widget: list
+            summary: "{{fields.text}}"
+            label_singular: Bild
+            fields:
+              - { label: Bild, name: bild, widget: image, media_folder: /img/galerie, public_folder: /img/galerie }
+              - { label: Bildbeschreibung, name: text, widget: string, required: false, hint: "Kurz beschreiben, was zu sehen ist (wichtig für Sehbehinderte und Google)." }
+
+      - name: einstellungen
+        label: Kontakt & soziale Medien
+        file: content/einstellungen.json
+        format: json
+        fields:
+          - { label: E-Mail-Adresse, name: email, widget: string, required: false, hint: "Leer lassen, solange es noch keine gibt. Erscheint bei Kontakt, Impressum und Datenschutz." }
+          - { label: Instagram-Link, name: instagram, widget: string, required: false }
+          - { label: Facebook-Link, name: facebook, widget: string, required: false }

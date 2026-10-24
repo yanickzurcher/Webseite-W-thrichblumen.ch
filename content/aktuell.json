@@ -1,0 +1,38 @@
+{
+  "stand": "",
+  "hinweis": "Das Feld ändert sich von Woche zu Woche. Hier siehst du, was im Moment geschnitten werden kann.",
+  "blumen": [
+    {
+      "name": "Sonnenblumen",
+      "bild": "/img/aktuell/sonnenblumen.jpg"
+    },
+    {
+      "name": "Gladiolen",
+      "bild": "/img/aktuell/gladiolen.jpg"
+    },
+    {
+      "name": "Dahlien",
+      "bild": "/img/aktuell/dahlien.jpg"
+    },
+    {
+      "name": "Strohblumen",
+      "bild": "/img/aktuell/strohblumen.jpg"
+    },
+    {
+      "name": "Bartnelken",
+      "bild": "/img/aktuell/bartnelken.jpg"
+    },
+    {
+      "name": "Tulpen",
+      "bild": "/img/aktuell/tulpen.jpg"
+    },
+    {
+      "name": "Zinnien",
+      "bild": "/img/aktuell/zinnien.jpg"
+    },
+    {
+      "name": "Schmuckkörbchen",
+      "bild": "/img/aktuell/schmuckkoerbchen.jpg"
+    }
+  ]
+}
