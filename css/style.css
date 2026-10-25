@@ -274,6 +274,14 @@ p { margin: 0 0 1em; max-width: 62ch; }
   .etikett p { font-size: .86rem; margin: 0 2px; }
 }
 
+/* Schmal (Handy): die Etiketten stehen einzeln untereinander */
+@media (max-width: 600px) {
+  .etiketten { grid-template-columns: minmax(0, 300px); justify-content: center; gap: 48px; }
+  .etiketten > li, .etiketten > li:nth-child(n), .etiketten > li:last-child:nth-child(odd) { grid-column: 1; }
+  .etikett { padding: 34px 14px 20px; }
+  .etikett h3 { font-size: 1.45rem; margin: 14px 4px 2px; white-space: normal; letter-spacing: normal; }
+}
+
 /* ---------- Über uns ---------- */
 .personen { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px) clamp(20px, 3vw, 40px); }
 .person__bild { aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden; background: var(--packpapier); margin-bottom: 16px; }
