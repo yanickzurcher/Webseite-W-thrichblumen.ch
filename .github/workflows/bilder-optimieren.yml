@@ -1,0 +1,44 @@
+name: Bilder automatisch verkleinern
+
+# Läuft jedes Mal, wenn im CMS (oder direkt auf GitHub) ein Bild hinzukommt.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "img/aktuell/**"
+      - "img/personen/**"
+      - "img/hof/**"
+      - "img/galerie/**"
+      - "img/uploads/**"
+      - "img/start/**"
+      - "img/sogehts/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bilder-optimieren
+  cancel-in-progress: false
+
+jobs:
+  verkleinern:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - run: python .github/scripts/bilder_optimieren.py
+      - name: Änderungen speichern
+        run: |
+          if [ -n "$(git status --porcelain img)" ]; then
+            git config user.name "Bilder-Automatik"
+            git config user.email "actions@users.noreply.github.com"
+            git add -A img
+            git commit -m "Bilder automatisch verkleinert"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "Nichts zu tun."
+          fi
