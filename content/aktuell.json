@@ -5,14 +5,14 @@
     {
       "name": "Sonnenblumen",
       "bild": "/img/aktuell/sonnenblumen.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
     {
       "name": "Gladiolen",
       "bild": "/img/aktuell/gladiolen.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
@@ -33,28 +33,28 @@
     {
       "name": "Bartnelken",
       "bild": "/img/aktuell/bartnelken.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
     {
       "name": "Tulpen",
       "bild": "/img/aktuell/tulpen.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
     {
       "name": "Zinnien",
       "bild": "/img/aktuell/zinnien.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
     {
       "name": "Schmuckkörbchen",
       "bild": "/img/aktuell/schmuckkoerbchen.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
@@ -68,21 +68,21 @@
     {
       "name": "Kornblumen",
       "bild": "/img/aktuell/kornblumen.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
     {
       "name": "Margeriten",
       "bild": "/img/aktuell/margeriten.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     },
     {
       "name": "Kugeldisteln",
       "bild": "/img/aktuell/kugeldisteln.jpg",
-      "sichtbar": true,
+      "sichtbar": false,
       "x": "50",
       "y": "50"
     }
